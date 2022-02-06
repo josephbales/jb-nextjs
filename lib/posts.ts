@@ -5,7 +5,6 @@ import yaml from 'js-yaml'
 import { remark } from 'remark'
 import html from 'remark-html'
 
-
 const postsDirectory = path.join(process.cwd(), 'posts')
 
 export function getSortedPostsData() {
