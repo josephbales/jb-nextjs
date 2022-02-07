@@ -23,3 +23,8 @@ article h2 {
 footer.container {
   padding-top: 0;
 }
+
+body > div > main {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}

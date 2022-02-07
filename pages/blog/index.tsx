@@ -1,7 +1,7 @@
-import Date from '../components/date'
+import Date from '../../components/date'
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import { getSortedPostsData } from '../lib/posts'
+import Layout, { siteTitle } from '../../components/layout'
+import { getSortedPostsData } from '../../lib/posts'
 import Link from 'next/link'
 
 import { GetStaticProps } from 'next'
@@ -30,7 +30,7 @@ export default function Blog({
         {allPostsData.map(({ id, date, title }) => (
           <>
       <details>
-      <summary><Link href={`/posts/${id}`}><a>{title}</a></Link></summary>
+      <summary><Link href={`/blog/${id}`}><a>{title}</a></Link></summary>
       <p><Date dateString={date} /> - todo: extract goes here</p>
   </details></>
                     
