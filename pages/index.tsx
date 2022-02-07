@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Firstpostlink from '../components/firstpostlink'
 import Layout, { siteTitle } from '../components/layout'
-import { getSortedPostsData } from '../lib/posts'
+import { generateRSSFeed, getSortedPostsData } from '../lib/posts'
 
 export default function Home({
   firstPostData
@@ -35,6 +35,8 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  // TODO: finish generating RSS feed https://ashleemboyer.com/blog/how-i-added-an-rss-feed-to-my-nextjs-site
+  generateRSSFeed(articles);
   const firstPostData = getSortedPostsData()[0]
   return {
     props: {
