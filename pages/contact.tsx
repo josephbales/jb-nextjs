@@ -1,9 +1,13 @@
 import type { NextPage } from 'next'
-import Layout from '../components/layout';
+import Head from 'next/head';
+import Layout, { siteTitle } from '../components/layout';
 
 const Contact: NextPage = () => {
   return (
     <Layout>
+      <Head>
+        <title>{siteTitle} - Contact</title>
+      </Head>
       <article>
         <header>
           <h2>Contact</h2>

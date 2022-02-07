@@ -1,5 +1,5 @@
-import Layout from '../../components/layout'
-import { getAllPostIds, getPostData } from '../../lib/posts'
+import Layout, { siteTitle } from '../../../../../components/layout'
+import { getAllPostIds, getPostData } from '../../../../../lib/posts'
 import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Link from 'next/link'
@@ -19,23 +19,23 @@ export default function Post({
   return (
     <Layout>
       <Head>
-        <title>{postData.title}</title>
+        <title>{siteTitle} - {postData.title}</title>
       </Head>
-      <header>
-        <h2>{postData.title}</h2>
-      </header>
       <article>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <header>
+          <h2>{postData.title}</h2>
+        </header>
+          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <footer>
+          <p>
+            Posted on <b><time dateTime="{new Date()}">{format(date, 'yyyy-MM-dd')}</time></b><br />
+            Authored by <b>{ postData.author }</b>
+          </p>
+          <p>
+            <Link href="/blog"><a>Back to Blog</a></Link>
+          </p>
+        </footer>
       </article>
-      <footer>
-        <p>
-          Posted on <b><time dateTime="{new Date()}">{format(date, 'yyyy-MM-dd')}</time></b><br />
-          Authored by <b>{ postData.author }</b>
-        </p>
-        <p>
-          <Link href="/blog"><a>Back to Blog</a></Link>
-        </p>
-      </footer>
     </Layout>
   )
 }

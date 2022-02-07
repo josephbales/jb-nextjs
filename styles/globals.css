@@ -24,7 +24,45 @@ footer.container {
   padding-top: 0;
 }
 
-body > div > main {
-  padding-top: 80px;
-  padding-bottom: 80px;
+@media (min-width: 576px) {
+
+  body>div>header,
+  body>div>main,
+  body>div>footer,
+  section {
+    --block-spacing-vertical: calc(var(--spacing) * 2.5);
+  }
+}
+
+@media (min-width: 768px) {
+  body>div>header,
+  body>div>main,
+  body>div>footer,
+  section {
+    --block-spacing-vertical: calc(var(--spacing) * 3);
+  }
+}
+
+@media (min-width: 992px) {
+  body>div>header,
+  body>div>main,
+  body>div>footer,
+  section {
+    --block-spacing-vertical: calc(var(--spacing) * 3.5);
+  }
+}
+
+@media (min-width: 1200px) {
+  body>div>header,
+  body>div>main,
+  body>div>footer,
+  section {
+    --block-spacing-vertical: calc(var(--spacing) * 4);
+  }
+}
+
+body>div>header,
+body>div>main,
+body>div>footer {
+  padding: var(--block-spacing-vertical) 0;
 }

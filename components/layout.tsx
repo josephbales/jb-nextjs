@@ -2,8 +2,7 @@ import Head from 'next/head'
 import Footer from '../components/footer'
 import Topnav from '../components/topnav'
 
-const name = '[Your Name]'
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'josephbales.com'
 
 export default function Layout({
   children,
