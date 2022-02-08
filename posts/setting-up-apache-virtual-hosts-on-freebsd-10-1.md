@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Setting up Apache Virtual Hosts on FreeBSD 10.1
 author: Joseph Bales
 date: 2015-04-03

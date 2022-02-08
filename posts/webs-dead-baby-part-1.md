@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 'Web’s Dead, Baby: Part 1'
 author: Joseph Bales
 date: 2013-05-26

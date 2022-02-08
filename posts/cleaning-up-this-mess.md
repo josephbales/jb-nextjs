@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Cleaning Up This Mess
 author: Joseph Bales
 date: 2020-10-18

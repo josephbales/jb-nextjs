@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Deleting Your Google Apps for Your Domain Account
 author: Joseph Bales
 date: 2013-11-29

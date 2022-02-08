@@ -3,7 +3,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Firstpostlink from '../components/firstpostlink'
 import Layout, { siteTitle } from '../components/layout'
-import { generateRSSFeed, getSortedPostsData } from '../lib/posts'
+import { getPostsForRSS, getSortedPostsData } from '../lib/posts'
+import { generateRSSFeed } from '../lib/rss'
 
 export default function Home({
   firstPostData
@@ -17,6 +18,7 @@ export default function Home({
     <Layout home>
       <Head>
         <title>{siteTitle} - Table of Contents</title>
+        <link rel="alternate" type="application/rss+xml" title="Subscribe to my feed!" href="/feed.xml" />
       </Head>
       <article>
         <header>
@@ -27,7 +29,7 @@ export default function Home({
           <li><Link href="/blog"><a >Blog</a></Link></li>
           <li><Link href="/about"><a>About</a></Link></li>
           <li><Link href="/contact"><a>Contact</a></Link></li>
-          <li><a>RSS (todo)</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
         </ul>
       </article>
     </Layout>
@@ -35,8 +37,7 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  // TODO: finish generating RSS feed https://ashleemboyer.com/blog/how-i-added-an-rss-feed-to-my-nextjs-site
-  generateRSSFeed(articles);
+  generateRSSFeed(getPostsForRSS());
   const firstPostData = getSortedPostsData()[0]
   return {
     props: {

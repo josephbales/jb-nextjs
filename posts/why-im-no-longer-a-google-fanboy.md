@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Why I'm no longer a Google fanboy
 author: Joseph Bales
 date: 2014-05-17

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: The purpose of Twitter Bootstrap
 author: Joseph Bales
 date: 2014-12-08

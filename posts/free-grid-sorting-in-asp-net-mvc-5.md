@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 'MVCGrid.Net'
 author: Joseph Bales
 date: 2016-12-12

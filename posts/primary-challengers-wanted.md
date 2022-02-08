@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Primary Challengers Wanted
 author: Joseph Bales
 date: 2013-04-21

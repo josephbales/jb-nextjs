@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Two+ Years of Updates
 author: Joseph Bales
 date: 2019-12-05

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 'Web’s Dead, Baby: Part 2'
 author: Joseph Bales
 date: 2013-06-12
@@ -14,7 +13,7 @@ So, what did you think? If you were thinking, "What the hell is Emacs?" you miss
 
 Okay, you done? Good. What did you think? Don't answer, that was rhetorical (and people sitting near you will think you're crazy for talking at the computer). I'll tell you what I think. It's glorious. It's a fine piece of web design. That hand drawn look is very cool and the overall design is simple and easy to read.  The fonts are great and I really admire the thought, time, and artistry that went into creating it. Now look at this image (click or touch for a larger version):
 
-<a href="{{ site.url }}/assets/sacha_chua_screenshot.png"><img src="{{ site.url }}/assets/sacha_chua_screenshot.png" alt="sacha_chua_screenshot" width="168" height="300" class="alignnone size-medium wp-image-1062" /></a>
+<a href="/assets/sacha_chua_screenshot.png"><img src="/assets/sacha_chua_screenshot.png" alt="sacha_chua_screenshot" width="168" height="300" class="alignnone size-medium wp-image-1062" /></a>
 
 This is how that website looks on a mobile browser. Specifically, that's how it looks on Chrome for Android on my Galaxy S3. So that great design, gone. The artistry, gone. Everything that made that sight design unique and interesting, gone.
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: .NET Core 1.0 Not Ready for Primetime
 author: Joseph Bales
 date: 2017-01-13
