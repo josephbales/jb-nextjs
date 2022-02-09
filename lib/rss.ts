@@ -26,7 +26,7 @@ export function generateRSSFeed(posts: {id: string, contentHtml: string, date: s
     // Add each article to the feed
     posts.forEach((post) => {
       const date = parseISO(post.date)
-      const url = `${baseUrl}/blog/${format(date, 'yyyy')}/${format(date, 'MM')}/${format(date, 'dd')}/${post.filename}`;
+      const url = `${baseUrl}/blog/${format(date, 'yyyy')}/${format(date, 'MM')}/${format(date, 'dd')}/${post.id}`;
   
       feed.addItem({
         title: post.title,

@@ -38,7 +38,7 @@ export default function Home({
 
 export const getStaticProps: GetStaticProps = async () => {
   generateRSSFeed(await getPostsForRSS());
-  const firstPostData = getSortedPostsData()[0]
+  const firstPostData = (await getSortedPostsData())[0]
   return {
     props: {
       firstPostData

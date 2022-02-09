@@ -4,14 +4,15 @@ import { getSortedPostsData } from '../../lib/posts'
 import { GetStaticProps } from 'next'
 import Postlink from '../../components/postlink'
 import Postextract from '../../components/postextract'
-
+// TODO: fix blog posts with jekyll style links
 export default function Blog({
   allPostsData
 }: {
   allPostsData: {
+    id: string
+    extract: string
     date: string
     title: string
-    id: string
   }[]
 }) {
   return (
@@ -26,11 +27,11 @@ export default function Blog({
         <h2>Blog</h2>
       </header>
 
-        {allPostsData.map(({ id, date, title }) => (
+        {allPostsData.map(({ id, extract, date, title }) => (
           <>
             <details>
               <Postlink id={id} dateString={date} title={title}></Postlink>
-              <Postextract dateString={date} extract=" - todo: extract goes here" />
+              <Postextract dateString={date} extract={extract} />
             </details>
           </>
         ))}
@@ -42,7 +43,7 @@ export default function Blog({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData()
+  const allPostsData = await getSortedPostsData()
   return {
     props: {
       allPostsData
