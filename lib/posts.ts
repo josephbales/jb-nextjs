@@ -2,8 +2,6 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import yaml from 'js-yaml'
-import { remark } from 'remark'
-import html from 'remark-html'
 import { format, parseISO } from 'date-fns'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -87,7 +85,7 @@ export async function getPostData(id: string) {
 
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents, { engines: {yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object}})
-
+  // TODO: can I use remark in place of gray-matter?
   // Use remark to convert markdown into HTML string
   const processedContent = await unified()
     .use(remarkParse)
