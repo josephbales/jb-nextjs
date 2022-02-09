@@ -2,8 +2,7 @@ import { format, parseISO } from "date-fns";
 import { Feed, FeedOptions } from "feed";
 import fs from 'fs'
 
-// TODO: maybe put this in another file and figure out what needs to go into this as far as post data is concerned
-export function generateRSSFeed(posts: {filename: string, date: string, title: string, author:string, content: string}[]) {
+export function generateRSSFeed(posts: {id: string, contentHtml: string, date: string, title: string, author:string}[]) {
     const baseUrl = 'https://josephbales.com';
     const author = {
       name: 'Joseph Bales',
@@ -33,7 +32,7 @@ export function generateRSSFeed(posts: {filename: string, date: string, title: s
         title: post.title,
         id: url,
         link: url,
-        description: post.content,
+        description: post.contentHtml,
         author: [{name: post.author}],
         date: date,
       });

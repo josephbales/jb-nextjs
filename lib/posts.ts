@@ -13,28 +13,15 @@ import rehypeStringify from 'rehype-stringify'
 const postsDirectory = path.join(process.cwd(), 'posts')
 
 // TODO: fix this so that perhaps it used the same logic as getPostData below
-export function getPostsForRSS() {
+export async function getPostsForRSS() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
-  const allPostsData = fileNames.map(fileName => {
+  const allPostsData = await Promise.all(fileNames.map(async (fileName) => {
     // Remove ".md" from file name to get id
-    const filename = fileName.replace(/\.md$/, '')
+    const id = fileName.replace(/\.md$/, '')
 
-    // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName)
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-    // Use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents, { engines: {yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object}})
-    const content = matterResult.content
-
-    // Combine the data with the id
-    return {
-      filename,
-      ...(matterResult.data as { date: string; title: string, author: string }),
-      content
-    }
-  })
+    return await getPostData(id)
+  }))
   // Sort posts by date
   return allPostsData.sort((a, b) => {
     if (a.date < b.date) {
@@ -107,8 +94,6 @@ export async function getPostData(id: string) {
     .use(remarkRehype, {allowDangerousHtml: true}) // Pass raw HTML strings through.
     .use(rehypeStringify, {allowDangerousHtml: true}) // Serialize the raw HTML strings
     .process(matterResult.content)
-
-  console.log(processedContent)
 
   const contentHtml = processedContent.toString()
 
