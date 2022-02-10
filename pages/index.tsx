@@ -1,10 +1,10 @@
-import type { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
-import Firstpostlink from '../components/firstpostlink'
-import Layout, { siteTitle } from '../components/layout'
-import { getPostsForRSS, getSortedPostsData } from '../lib/posts'
-import { generateRSSFeed } from '../lib/rss'
+import type { GetStaticProps, NextPage } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
+import Firstpostlink from '../components/firstpostlink';
+import Layout, { siteTitle } from '../components/layout';
+import { getPostsForRSS, getSortedPostsData } from '../lib/posts';
+import { generateRSSFeed } from '../lib/rss';
 
 export default function Home({
   firstPostData
@@ -33,15 +33,15 @@ export default function Home({
         </ul>
       </article>
     </Layout>
-  )
+  );
 }
-
+// TODO: get static assets into the deployment files, and figure out deployment https://nextjs.org/docs/deployment
 export const getStaticProps: GetStaticProps = async () => {
   generateRSSFeed(await getPostsForRSS());
-  const firstPostData = (await getSortedPostsData())[0]
+  const firstPostData = (await getSortedPostsData())[0];
   return {
     props: {
       firstPostData
     }
-  }
-}
+  };
+};

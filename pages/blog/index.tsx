@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../../components/layout'
-import { getSortedPostsData } from '../../lib/posts'
-import { GetStaticProps } from 'next'
-import Postlink from '../../components/postlink'
-import Postextract from '../../components/postextract'
-// TODO: fix blog posts with jekyll style links
+import Head from 'next/head';
+import Layout, { siteTitle } from '../../components/layout';
+import { getSortedPostsData } from '../../lib/posts';
+import { GetStaticProps } from 'next';
+import Postlink from '../../components/postlink';
+import Postextract from '../../components/postextract';
+
 export default function Blog({
   allPostsData
 }: {
@@ -28,25 +28,23 @@ export default function Blog({
       </header>
 
         {allPostsData.map(({ id, extract, date, title }) => (
-          <>
-            <details>
-              <Postlink id={id} dateString={date} title={title}></Postlink>
-              <Postextract dateString={date} extract={extract} />
-            </details>
-          </>
+          <details key={id}>
+            <Postlink id={id} dateString={date} title={title}></Postlink>
+            <Postextract dateString={date} extract={extract} />
+          </details>
         ))}
 
       </article>
         
     </Layout>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = await getSortedPostsData()
+  const allPostsData = await getSortedPostsData();
   return {
     props: {
       allPostsData
     }
-  }
-}
+  };
+};

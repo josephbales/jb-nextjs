@@ -1,8 +1,8 @@
-import Head from 'next/head'
-import Footer from '../components/footer'
-import Topnav from '../components/topnav'
+import Head from 'next/head';
+import Footer from '../components/footer';
+import Topnav from '../components/topnav';
 
-export const siteTitle = 'josephbales.com'
+export const siteTitle = 'josephbales.com';
 
 export default function Layout({
   children,
@@ -23,5 +23,5 @@ export default function Layout({
       <main className='container'>{children}</main>
       <Footer />
     </>
-  )
+  );
 }

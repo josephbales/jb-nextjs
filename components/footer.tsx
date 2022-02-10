@@ -3,5 +3,5 @@ export default function Footer() {
         <footer className="container">
             &copy; Joseph Bales 2013 - {(new Date()).getFullYear()}<br />
         </footer>
-    )
+    );
   }

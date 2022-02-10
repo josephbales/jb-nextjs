@@ -1,9 +1,9 @@
-import Layout, { siteTitle } from '../../../../../components/layout'
-import { getAllPostIds, getPostData } from '../../../../../lib/posts'
-import Head from 'next/head'
-import { GetStaticProps, GetStaticPaths } from 'next'
-import Link from 'next/link'
-import { format, parseISO } from 'date-fns'
+import Layout, { siteTitle } from '../../../../../components/layout';
+import { getAllPostIds, getPostData } from '../../../../../lib/posts';
+import Head from 'next/head';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import Link from 'next/link';
+import { format, parseISO } from 'date-fns';
 
 export default function Post({
   postData
@@ -15,7 +15,7 @@ export default function Post({
     contentHtml: string
   }
 }) {
-  const date = parseISO(postData.date)
+  const date = parseISO(postData.date);
   return (
     <Layout>
       <Head>
@@ -37,22 +37,27 @@ export default function Post({
         </footer>
       </article>
     </Layout>
-  )
+  );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds()
+  const paths = getAllPostIds();
   return {
     paths,
     fallback: false
-  }
-}
+  };
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string)
-  return {
-    props: {
-      postData
-    }
+  if (params) {
+    const postData = await getPostData(params.id as string);
+    return {
+      props: {
+        postData
+      }
+    };
   }
-}
+  return {
+    props: {}
+  };
+};

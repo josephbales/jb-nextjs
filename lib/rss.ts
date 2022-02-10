@@ -1,6 +1,6 @@
-import { format, parseISO } from "date-fns";
-import { Feed, FeedOptions } from "feed";
-import fs from 'fs'
+import { format, parseISO } from 'date-fns';
+import { Feed, FeedOptions } from 'feed';
+import fs from 'fs';
 
 export function generateRSSFeed(posts: {id: string, contentHtml: string, date: string, title: string, author:string}[]) {
     const baseUrl = 'https://josephbales.com';
@@ -25,7 +25,7 @@ export function generateRSSFeed(posts: {id: string, contentHtml: string, date: s
   
     // Add each article to the feed
     posts.forEach((post) => {
-      const date = parseISO(post.date)
+      const date = parseISO(post.date);
       const url = `${baseUrl}/blog/${format(date, 'yyyy')}/${format(date, 'MM')}/${format(date, 'dd')}/${post.id}`;
   
       feed.addItem({
